@@ -1,42 +1,125 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  margin-top: 15px;
+  gap: 8px;
 }
 
+header img,
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header h1,
+header h2,
+header p,
+header span {
+  font-size: 1.15rem;
+  font-weight: normal;
+  color: #222222;
+  background-color: #d1d5db;
+  padding: 2px 10px;
+  display: inline-block;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
+#buscador {
+  margin-top: 25px;
+  margin-bottom: 12px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #222222;
+  background-color: #d1d5db;
+  padding: 2px 14px;
+  letter-spacing: -0.5px;
 }
 
-.read-the-docs {
-  color: #888;
+#query {
+  width: 250px;
+  padding: 3px 6px;
+  font-size: 0.9rem;
+  border: 1px solid #767676;
+  border-radius: 0;
+  outline: none;
+  margin-bottom: 6px;
+}
+
+#botonsearch {
+  padding: 2px 10px;
+  font-size: 0.85rem;
+  background-color: #efefef;
+  border: 1px solid #767676;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+#botonsearch:hover {
+  background-color: #e5e5e5;
+}
+
+#resultados {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  width: 100%;
+  padding: 0 16px 40px 16px;
+}
+
+#resultados li {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 25px 12px 15px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 250px;
+}
+
+#resultados li p {
+  font-size: 0.82rem;
+  color: #222222;
+  margin-bottom: 5px;
+  word-break: break-all;
+  width: 100%;
+}
+
+#resultados li p b {
+  font-weight: bold;
+}
+
+#resultados li img {
+  width: 70px;
+  height: 80px;
+  object-fit: contain;
+  margin-top: auto;
 }
