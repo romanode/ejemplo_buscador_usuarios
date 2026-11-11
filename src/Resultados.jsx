@@ -1,9 +1,9 @@
 
-export default function Resultados({usuarios}){
+export default function Resultados({resultado}){
     return (
         <div>
         <ul id="resultados">
-            {usuarios.map( user => (
+            {resultado.map( user => (
                 <li key={user.id}>
                    <p> Nombre: <b>{user.firstName}</b>  {user.lastName}</p>
                    <p> Email: {user.email}</p>
