@@ -11,13 +11,28 @@ function App() {
   const [resultado, setResultado] = useState('');
 
   // Funciones complementarias
-  const callServer = async () => {
+  const callServer = async (param) => {
+
         console.log("CLICK");
+
         if(CONFIG.use_server){
-          const res = await fetch(CONFIG.server_url);
-          const data = await res.json();
-          console.log(data);
-          setResultado(data.users);
+          try{
+            let queryparams;
+            if(param==="all"){
+              queryparams = "?limit=" + CONFIG.num_items;
+            } else{
+              queryparams = "/search?q=" + query;
+            }
+
+            const res = await fetch(`${CONFIG.server_url}${queryparams}`);
+            const data = await res.json();
+            console.log(data);
+            setResultado(data.users);
+
+          }catch(error){
+            console.log(error);
+          }
+
         }else{
         setResultado(mock1.users);
         }
@@ -30,8 +45,8 @@ function App() {
 
        <h2 id="buscador">Buscador de usuarios</h2>
        <input id="query" type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
-       <button id="botonsearch"  onClick={callServer}>Buscar</button>
-
+       <button id="botonsearch"  onClick={() => callServer()}>Buscar</button>
+       <button id="botonall" onClick={() => callServer("all")}>Buscar Todos </button>
        { resultado && <Resultados resultado={resultado}/> }
       </div>
   
